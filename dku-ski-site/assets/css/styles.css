@@ -1,0 +1,206 @@
+/* Shared visual system for the DKU Ski Team static site. */
+:root {
+      --dku-blue: #00539E;
+      --primary: #003c75;
+      --primary-dark: #002A53;
+      --primary-light: #C2E0F6;
+      --blue-400: #009DDC;
+      --blue-200: #77BDE8;
+      --blue-100: #B8D0ED;
+      --gold-muted: #C3AD8A;
+      --surface: #F9F9FF;
+      --surface-low: #F2F3FA;
+      --text: #191C21;
+      --muted: #424751;
+      --border: #E5E7EB;
+      --container: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, "Noto Sans KR", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(194, 224, 246, .40), transparent 520px),
+        linear-gradient(180deg, #ffffff 0%, #F8FAFC 44%, #ffffff 100%);
+      color: var(--text);
+      word-break: keep-all;
+    }
+    a, button { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    img { max-width: 100%; display: block; }
+    :focus-visible { outline: 3px solid rgba(0, 157, 220, .45); outline-offset: 3px; border-radius: 10px; }
+
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      line-height: 1;
+    }
+
+    .page { display: none; animation: fade .18s ease both; }
+    .page.active { display: block; }
+    @keyframes fade { from { opacity: .35; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .nav-link.active {
+      color: var(--primary);
+      font-weight: 800;
+      border-bottom-color: var(--primary);
+    }
+
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: grid; }
+
+    #mobile-menu-button {
+      grid-column: 3;
+      justify-self: end;
+    }
+
+    .card-hover { transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 83, 158, .20);
+      box-shadow: 0 16px 38px -18px rgba(0, 60, 117, .30);
+    }
+
+    .hero-bg {
+      background-image:
+        linear-gradient(90deg, rgba(0, 42, 83, .58), rgba(0, 42, 83, .18) 58%, rgba(0, 42, 83, .22)),
+        url("https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2070&auto=format&fit=crop");
+      background-size: cover;
+      background-position: center top;
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 4.4vw, 3rem);
+      line-height: 1.16;
+      letter-spacing: -0.04em;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .page-title {
+      font-size: clamp(2.25rem, 6vw, 4.5rem);
+      line-height: 1.06;
+      letter-spacing: -0.055em;
+      font-weight: 800;
+      color: var(--primary-dark);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      font-size: .75rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--primary);
+      background: rgba(194, 224, 246, .60);
+      border: 1px solid rgba(0, 83, 158, .14);
+      border-radius: 999px;
+      padding: .45rem .75rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      min-height: 44px;
+      border-radius: 999px;
+      font-weight: 800;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease, box-shadow .18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 26px rgba(0, 60, 117, .20);
+    }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 1px solid rgba(0, 83, 158, .22);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, .06);
+    }
+    .btn-secondary:hover { background: #F8FAFC; }
+
+    .fluent-input {
+      transition: all .2s ease-in-out;
+      border-bottom-width: 2px;
+      border-bottom-color: transparent;
+    }
+    .fluent-input:focus {
+      border-bottom-color: var(--primary);
+      box-shadow: none;
+      background-color: #ffffff;
+    }
+
+    .filter-button.active,
+    .member-tab.active,
+    .admin-filter.active,
+    .admin-member-filter.active,
+    .admin-archive-filter.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 8px 20px rgba(0, 60, 117, .18);
+    }
+
+    .admin-only.hidden { display: none !important; }
+
+    .modal-backdrop {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(15, 23, 42, .55);
+      backdrop-filter: blur(4px);
+      padding: 24px;
+    }
+    .modal-backdrop.open { display: grid; place-items: center; }
+
+    .sticky-apply {
+      display: none;
+      position: fixed;
+      left: 16px;
+      right: 16px;
+      bottom: 16px;
+      z-index: 60;
+    }
+
+    body.page-recruitment-active .sticky-apply {
+      display: none !important;
+    }
+
+    .login-option {
+      transition: border-color .18s ease, background .18s ease, transform .18s ease;
+    }
+    .login-option:hover {
+      border-color: rgba(0, 83, 158, .35);
+      background: #F8FAFC;
+      transform: translateY(-1px);
+    }
+
+    .modal-backdrop > div {
+      max-height: calc(100vh - 48px);
+      overflow-y: auto;
+    }
+
+    .toast-item {
+      pointer-events: auto;
+      animation: toast-in .18s ease-out both;
+    }
+
+    @keyframes toast-in {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      body { padding-bottom: 76px; }
+      .sticky-apply { display: flex; }
+      .desktop-only { display: none !important; }
+      .hero-bg { background-position: center top; }
+    }
