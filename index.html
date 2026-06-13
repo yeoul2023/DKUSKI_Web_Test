@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>단국대학교 스키부</title>
-  <meta name="description" content="단국대학교 스키부 공식 테스트 웹사이트. 동아리 소개, 신입 모집, 활동 기록, YB·OB 명단을 제공합니다." />
+  <title>단국대학교 스키부 | DKU Ski Team</title>
+  <meta name="description" content="단국대학교 스키부 공식 웹사이트 데모. 동아리 소개, 신입 모집, 활동 기록, YB·OB 멤버 안내와 관리자 운영 흐름을 제공합니다." />
   <meta name="theme-color" content="#00539E" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -195,7 +195,8 @@
     .filter-button.active,
     .member-tab.active,
     .admin-filter.active,
-    .admin-member-filter.active {
+    .admin-member-filter.active,
+    .admin-archive-filter.active {
       background: var(--primary);
       color: white;
       border-color: var(--primary);
@@ -315,7 +316,7 @@
             <span class="inline-flex items-center gap-2 text-xs text-blue-100 bg-white/14 border border-white/20 rounded-full px-3 py-2 uppercase tracking-widest font-bold backdrop-blur-sm">Since 1986 · Alpine Skiing</span>
             <h1 class="text-[40px] md:text-[72px] leading-[1.1] tracking-[-0.04em] font-extrabold text-white mb-stack-sm drop-shadow-md mt-6">단국대학교 스키부</h1>
             <p class="text-[18px] leading-[1.6] text-white/90 max-w-2xl mb-8 font-medium tracking-wide">
-              Free in spirit, Grounded in attitude.
+              Free in spirit, grounded in character.
             </p>
             <p class="text-white/80 max-w-2xl text-[17px] leading-relaxed mb-10">
               여유롭지만 가볍지 않고, 자유롭지만 흐트러지지 않는 팀 문화. 단국대학교 스키부는 알파인 스키 훈련과 겨울 합숙, YB·OB 네트워크를 중심으로 성장하는 대학 스포츠 동아리입니다.
@@ -528,35 +529,36 @@
         <div class="bg-white rounded-[24px] shadow-sm border border-gray-200 p-8 md:p-12">
           <div class="text-center mb-10">
             <h2 class="text-[28px] font-bold text-primary-dark mb-2">입부 신청서</h2>
-            <p class="text-sm text-on-surface-variant">테스트 폼입니다. 실제 제출 기능은 아직 연결되어 있지 않습니다.</p>
+            <p class="text-sm text-on-surface-variant">데모에서는 제출 즉시 관리자 승인 대기 목록에 접수됩니다. 실제 배포 시에는 서버 저장과 알림 기능을 연결합니다.</p>
           </div>
 
           <form id="recruitment-form" class="space-y-6">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="name">성명</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="name" placeholder="홍길동" type="text" required /></div>
-              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="student_id">학번</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="student_id" placeholder="3220XXXX" type="text"/></div>
+              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="name">성명</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="name" placeholder="홍길동" type="text" autocomplete="name" required /></div>
+              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="student_id">학번</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="student_id" placeholder="3220XXXX" type="text" inputmode="numeric" /></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="department">학과</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="department" placeholder="전자전기공학부" type="text"/></div>
+              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="department">학과</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="department" placeholder="전자전기공학부" type="text" autocomplete="organization" required /></div>
               <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="year">학년</label><select class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0 text-on-surface-variant" id="year"><option>1학년</option><option>2학년</option><option>3학년</option><option>4학년</option><option>휴학생</option></select></div>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="phone">연락처</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="phone" placeholder="010-XXXX-XXXX" type="tel"/></div>
-              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="email">이메일</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="email" placeholder="student@dankook.ac.kr" type="email"/></div>
+              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="phone">연락처</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="phone" placeholder="010-XXXX-XXXX" type="tel" autocomplete="tel" required /></div>
+              <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="email">이메일</label><input class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0" id="email" placeholder="student@dankook.ac.kr" type="email" autocomplete="email" required /></div>
             </div>
             <div class="flex flex-col">
               <label class="text-xs font-bold text-on-surface-variant mb-3">스키 숙련도</label>
               <div class="flex flex-wrap gap-4">
-                <label class="flex items-center gap-2 cursor-pointer"><input class="text-primary focus:ring-primary h-4 w-4 border-gray-300" name="experience" type="radio"/><span class="text-sm text-on-surface-variant">초보</span></label>
+                <label class="flex items-center gap-2 cursor-pointer"><input class="text-primary focus:ring-primary h-4 w-4 border-gray-300" name="experience" type="radio" required /><span class="text-sm text-on-surface-variant">초보</span></label>
                 <label class="flex items-center gap-2 cursor-pointer"><input class="text-primary focus:ring-primary h-4 w-4 border-gray-300" name="experience" type="radio"/><span class="text-sm text-on-surface-variant">1–3회 경험</span></label>
                 <label class="flex items-center gap-2 cursor-pointer"><input class="text-primary focus:ring-primary h-4 w-4 border-gray-300" name="experience" type="radio"/><span class="text-sm text-on-surface-variant">중급</span></label>
                 <label class="flex items-center gap-2 cursor-pointer"><input class="text-primary focus:ring-primary h-4 w-4 border-gray-300" name="experience" type="radio"/><span class="text-sm text-on-surface-variant">상급 / 선수 경험</span></label>
               </div>
             </div>
             <div class="flex flex-col"><label class="text-xs font-bold text-on-surface-variant mb-2" for="motivation">지원 동기</label><textarea class="fluent-input bg-surface-container-low border-0 rounded-t-md px-4 py-3 text-sm focus:ring-0 resize-none" id="motivation" placeholder="지원 동기를 작성해주세요." rows="4"></textarea></div>
-            <div class="pt-4 border-t border-gray-100"><label class="flex items-start gap-3 cursor-pointer"><input class="mt-1 text-primary focus:ring-primary rounded border-gray-300" type="checkbox" required /><span class="text-xs text-on-surface-variant leading-relaxed">모집 및 동아리 운영 연락을 위한 개인정보 수집·이용에 동의합니다. 공개 페이지에는 학번, 전화번호 등 민감 정보가 표시되지 않습니다.</span></label></div>
+            <div class="pt-4 border-t border-gray-100"><label class="flex items-start gap-3 cursor-pointer"><input class="mt-1 text-primary focus:ring-primary rounded border-gray-300" type="checkbox" required /><span class="text-xs text-on-surface-variant leading-relaxed">모집 안내, 면담 일정 조율, 합숙 및 동아리 운영 연락을 위한 개인정보 수집·이용에 동의합니다. 공개 페이지에는 학번, 전화번호, 이메일, 지원 동기 등 민감 정보가 표시되지 않습니다.</span></label></div>
             <div class="pt-6 text-center"><button class="btn btn-primary py-3 px-12 w-full md:w-auto" type="submit">지원서 제출하기</button></div>
           </form>
+          <div id="application-receipt" class="hidden mt-8 rounded-2xl border border-primary-light bg-primary-light/25 p-6" role="status" aria-live="polite"></div>
         </div>
       </section>
     </section>
@@ -637,7 +639,7 @@
           <span class="eyebrow">Administrator Panel</span>
           <h1 class="page-title mt-6 mb-6">관리자 로그인이 필요합니다</h1>
           <p class="text-[18px] leading-relaxed text-on-surface-variant max-w-2xl mx-auto mb-8">
-            회원 관리 센터는 관리자 권한으로 로그인한 뒤 접근할 수 있습니다.
+            이 화면은 관리자 운영 흐름을 검토하기 위한 데모입니다. 실제 배포 시에는 서버 인증과 권한 검증으로 보호해야 합니다.
           </p>
           <button id="admin-locked-login-button" type="button" class="btn btn-primary px-8 py-3">관리자 로그인</button>
         </div>
@@ -648,7 +650,7 @@
               <span class="eyebrow">Administrator Panel</span>
               <h1 class="page-title mt-6 mb-4">회원 관리 센터</h1>
               <p class="text-[18px] leading-relaxed text-on-surface-variant max-w-3xl">
-                가입 신청, 부원 정보, YB·OB 상태, 관리자 메모를 한 화면에서 관리하는 테스트 패널입니다.
+                가입 신청, 부원 정보, YB·OB 상태, 활동 기록을 한 화면에서 점검하는 운영 데모입니다. 개인정보가 포함된 항목은 실제 배포에서 공개 페이지와 분리해야 합니다.
               </p>
             </div>
             <div class="flex flex-col sm:flex-row gap-3">
@@ -667,6 +669,21 @@
               <button id="admin-logout-button" type="button" class="btn btn-secondary px-6 py-3">
                 로그아웃
               </button>
+            </div>
+          </div>
+
+          <div class="mb-8 rounded-2xl border border-blue-100 bg-blue-50/70 p-5 flex flex-col md:flex-row gap-4">
+            <div class="w-10 h-10 rounded-xl bg-white text-primary grid place-items-center flex-shrink-0">
+              <span class="material-symbols-outlined">info</span>
+            </div>
+            <div>
+              <h2 class="font-bold text-primary-dark mb-1">관리자 데모 안내</h2>
+              <p class="text-sm leading-relaxed text-on-surface-variant">
+                현재 데이터는 브라우저 localStorage에 저장되는 데모입니다. 실제 서비스에서는 관리자 인증, 서버 권한 검증, 데이터베이스 저장, 개인정보 접근 로그가 필요합니다.
+              </p>
+              <p class="text-xs text-on-surface-variant mt-2">
+                모바일에서는 표 영역을 좌우로 스크롤해 확인할 수 있으며, CSV 내보내기에는 연락처와 학번 등 운영용 개인정보가 포함됩니다.
+              </p>
             </div>
           </div>
 
@@ -839,8 +856,8 @@
       <section class="pb-section-gap px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
           <article class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm card-hover"><span class="material-symbols-outlined text-primary text-4xl mb-5">photo_camera</span><h3 class="text-xl font-bold text-primary-dark mb-2">Instagram</h3><p class="text-on-surface-variant mb-5">@dku_ski_team</p><a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="btn btn-secondary px-5 py-2">바로가기</a></article>
-          <article class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm card-hover"><span class="material-symbols-outlined text-primary text-4xl mb-5">mail</span><h3 class="text-xl font-bold text-primary-dark mb-2">Email</h3><p class="text-on-surface-variant mb-5">contact@example.com</p><a href="mailto:contact@example.com" class="btn btn-secondary px-5 py-2">메일 문의</a></article>
-          <article class="bg-primary-dark text-white rounded-3xl p-8 shadow-sm card-hover"><span class="material-symbols-outlined text-white/70 text-4xl mb-5">how_to_reg</span><h3 class="text-xl font-bold mb-2">Recruitment</h3><p class="text-white/70 mb-5">입부 신청은 모집 페이지에서 테스트 폼으로 확인할 수 있습니다.</p><button data-page="recruitment" class="page-link btn bg-white text-primary px-5 py-2">지원 페이지</button></article>
+          <article class="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm card-hover"><span class="material-symbols-outlined text-primary text-4xl mb-5">mail</span><h3 class="text-xl font-bold text-primary-dark mb-2">Email</h3><p class="text-on-surface-variant mb-5">dku.ski.team@example.com</p><a href="mailto:dku.ski.team@example.com" class="btn btn-secondary px-5 py-2">메일 문의</a></article>
+          <article class="bg-primary-dark text-white rounded-3xl p-8 shadow-sm card-hover"><span class="material-symbols-outlined text-white/70 text-4xl mb-5">how_to_reg</span><h3 class="text-xl font-bold mb-2">Recruitment</h3><p class="text-white/70 mb-5">신입 지원서는 제출 즉시 관리자 승인 대기 목록에서 확인할 수 있습니다.</p><button data-page="recruitment" class="page-link btn bg-white text-primary px-5 py-2">지원 페이지</button></article>
         </div>
       </section>
     </section>
@@ -1035,7 +1052,7 @@
       </div>
       <div class="p-6 md:p-8">
         <p class="text-on-surface-variant leading-relaxed mb-6">
-          테스트 페이지용 로그인 화면입니다. 실제 배포 시 Google OAuth, Supabase Auth, Firebase Auth 등과 연결하면 됩니다.
+          데모에서는 관리자 화면을 즉시 열어 흐름을 검토합니다. 실제 배포 시에는 Google OAuth, Supabase Auth, Firebase Auth 같은 인증 체계와 서버 권한 검증이 필요합니다.
         </p>
         <div class="grid gap-3">
           <button id="admin-login-option" type="button" class="login-option w-full rounded-2xl border border-gray-200 px-5 py-4 text-left">
@@ -1473,6 +1490,51 @@
       return new Date().toISOString().slice(0, 10);
     }
 
+    function applicationReceiptId(seed) {
+      return `DKU-${todayString().replace(/-/g, "")}-${String(seed).slice(-5)}`;
+    }
+
+    function renderApplicationReceipt(application) {
+      const receipt = document.getElementById("application-receipt");
+      if (!receipt) return;
+
+      receipt.classList.remove("hidden");
+      receipt.innerHTML = `
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-5">
+          <div>
+            <div class="inline-flex items-center gap-2 rounded-full bg-white px-3 py-1 text-xs font-bold text-primary border border-primary-light mb-4">
+              <span class="material-symbols-outlined text-[16px]">check_circle</span>
+              신청 접수 완료
+            </div>
+            <h3 class="text-xl font-extrabold text-primary-dark mb-2">${escapeHtml(application.name)} 님의 지원서가 접수되었습니다.</h3>
+            <p class="text-sm leading-relaxed text-on-surface-variant">
+              데모 환경에서는 관리자 승인 대기 목록에 바로 반영됩니다. 실제 배포 시에는 입력한 연락처로 면담 또는 오리엔테이션 안내가 발송됩니다.
+            </p>
+          </div>
+          <div class="rounded-xl bg-white border border-gray-200 p-4 min-w-[220px]">
+            <div class="text-[11px] font-bold uppercase tracking-wider text-on-surface-variant mb-1">신청 번호</div>
+            <div class="text-lg font-extrabold text-primary-dark">${escapeHtml(application.receiptId)}</div>
+            <div class="text-xs text-on-surface-variant mt-2">${escapeHtml(application.submittedAt)}</div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-5">
+          <div class="rounded-xl bg-white border border-gray-200 p-4">
+            <div class="text-[11px] font-bold text-on-surface-variant mb-1">학과 / 학년</div>
+            <div class="text-sm font-semibold text-primary-dark">${escapeHtml(application.department)} · ${escapeHtml(application.year)}</div>
+          </div>
+          <div class="rounded-xl bg-white border border-gray-200 p-4">
+            <div class="text-[11px] font-bold text-on-surface-variant mb-1">스키 숙련도</div>
+            <div class="text-sm font-semibold text-primary-dark">${escapeHtml(application.experience)}</div>
+          </div>
+          <div class="rounded-xl bg-white border border-gray-200 p-4">
+            <div class="text-[11px] font-bold text-on-surface-variant mb-1">처리 상태</div>
+            <div class="text-sm font-semibold text-primary-dark">관리자 승인 대기</div>
+          </div>
+        </div>
+      `;
+      receipt.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
     function statusBadge(status) {
       const map = {
         yb: ["활동 중 (YB)", "bg-green-100 text-green-700"],
@@ -1508,6 +1570,7 @@
       }
 
       const fields = [
+        ["신청 번호", app.receiptId || request.receiptId],
         ["성명", app.name],
         ["학번", app.studentId],
         ["학과", app.department],
@@ -2284,6 +2347,17 @@
       const email = document.getElementById("email").value.trim() || "미입력";
       const motivation = document.getElementById("motivation").value.trim() || "미입력";
       const privacyConsent = form.querySelector('input[type="checkbox"]')?.checked ? "동의" : "미동의";
+
+      const duplicatePending = adminMembers.some((member) => {
+        if (member.status !== "pending") return false;
+        return (phone !== "미입력" && member.phone === phone) || (email !== "미입력" && member.email === email);
+      });
+
+      if (duplicatePending) {
+        showToast("이미 승인 대기 중인 신청이 있습니다. 관리자 확인 후 다시 진행해주세요.", "danger");
+        return;
+      }
+
       const submittedAt = new Date().toLocaleString("ko-KR", {
         year: "numeric",
         month: "2-digit",
@@ -2292,8 +2366,10 @@
         minute: "2-digit"
       });
       const idSeed = Date.now();
+      const receiptId = applicationReceiptId(idSeed);
 
       const application = {
+        receiptId,
         name,
         studentId,
         department,
@@ -2314,7 +2390,8 @@
         desc: `${department} ${year} 지원자가 입부 신청서를 제출했습니다.`,
         status: "pending",
         date: todayString(),
-        detail: `성명: ${name}\n학번: ${studentId}\n학과: ${department}\n학년: ${year}\n연락처: ${phone}\n이메일: ${email}\n스키 경험: ${experience}\n개인정보 동의: ${privacyConsent}\n제출 시각: ${submittedAt}\n지원 동기: ${motivation}`,
+        receiptId,
+        detail: `신청 번호: ${receiptId}\n성명: ${name}\n학번: ${studentId}\n학과: ${department}\n학년: ${year}\n연락처: ${phone}\n이메일: ${email}\n스키 경험: ${experience}\n개인정보 동의: ${privacyConsent}\n제출 시각: ${submittedAt}\n지원 동기: ${motivation}`,
         application,
         memo: "지원서 자동 접수"
       };
@@ -2331,6 +2408,7 @@
         studentId,
         email,
         submittedAt,
+        receiptId,
         memo: motivation
       };
 
@@ -2339,7 +2417,8 @@
       saveAdminData();
       if (isAdminLoggedIn) renderAdminDashboard();
       form.reset();
-      showToast("지원서가 관리자 승인 대기 목록에 등록되었습니다. 관리자 페이지에서 상세 내용을 확인할 수 있습니다.", "success");
+      renderApplicationReceipt(application);
+      showToast(`${receiptId} 지원서가 관리자 승인 대기 목록에 등록되었습니다.`, "success");
     });
 
     document.getElementById("admin-logout-button")?.addEventListener("click", () => {
